@@ -8,8 +8,6 @@ class SystemCheck(object):
     content = ''
 
     def __init(self):
-        self.getContent()
-        self.parseContent()
 
     def getContent(self):
         self.content = urllib2.urlopen(self.ynetUrl)
