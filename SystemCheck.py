@@ -8,6 +8,8 @@ class SystemCheck(object):
     content = ''
 
     def __init(self):
+        self.getContent()
+        self.parseContent()
 
     def getContent(self):
         self.content = urllib2.urlopen(self.ynetUrl)
@@ -18,6 +20,7 @@ class SystemCheck(object):
         result = soup.find("div", {"class" : "top-story-date"}).find("img")
         if result is not None:
             ynetDate = str(result["alt"]).split(" ")
+            #todatDate = datetime.now() + datetime.timedelta(days=1)
             todatDate = datetime.now()
             todatDate = datetime.strftime(todatDate, "%d/%m/%Y")
             ynetDatetimeObj = datetime.strptime(ynetDate[0], '%d/%m/%Y')
